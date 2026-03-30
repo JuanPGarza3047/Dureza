@@ -5,20 +5,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: #f4f6f8;
+    transition: 0.3s;
 }
 
 /* Container */
 .container {
     text-align: center;
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 600px;
+    padding: 20px;
 }
 
 /* Title */
 h1 {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -27,14 +29,15 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Buttons */
 button {
-    padding: 10px 15px;
-    margin: 5px;
+    padding: 14px 18px;
+    margin: 6px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #007bff;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.2s;
 }
@@ -46,29 +49,25 @@ button:hover {
 /* Calculate button */
 .calculate-btn {
     width: 100%;
-    margin-top: 15px;
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 18px;
     background: #28a745;
-}
-
-.calculate-btn:hover {
-    background: #1e7e34;
 }
 
 /* Rows */
 .material-row {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 /* Inputs */
 input {
-    padding: 12px;
-    font-size: 16px;
-    width: 120px;
-    border-radius: 8px;
+    padding: 14px;
+    font-size: 18px;
+    width: 140px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     text-align: center;
 }
@@ -76,6 +75,7 @@ input {
 /* Remove button */
 .remove-btn {
     background: #dc3545;
+    font-size: 18px;
 }
 
 .remove-btn:hover {
@@ -84,8 +84,9 @@ input {
 
 /* Result */
 #result {
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* 🌙 Dark Mode */
