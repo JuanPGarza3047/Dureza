@@ -1,3 +1,4 @@
+// Add a new material row
 function addMaterial(weight = "", strength = "") {
     const container = document.getElementById("materials");
 
@@ -7,17 +8,24 @@ function addMaterial(weight = "", strength = "") {
     row.innerHTML = `
         <input type="number" class="weight" placeholder="Weight (kg)" value="${weight}" />
         <input type="number" class="strength" placeholder="Strength (%)" value="${strength}" />
-        <button class="remove-btn" onclick="this.parentElement.remove()">⛔️</button>
+        <button class="remove-btn" onclick="removeMaterial(this)">⛔️</button>
     `;
 
     container.appendChild(row);
 }
 
+// Remove a specific row
+function removeMaterial(button) {
+    button.parentElement.remove();
+}
+
+// Clear all materials + result
 function clearAll() {
     document.getElementById("materials").innerHTML = "";
     document.getElementById("result").innerText = "";
 }
 
+// Calculate weighted average strength
 function calculate() {
     const weights = document.querySelectorAll(".weight");
     const strengths = document.querySelectorAll(".strength");
@@ -29,8 +37,14 @@ function calculate() {
         let w = parseFloat(weights[i].value);
         let s = parseFloat(strengths[i].value);
 
+        // Validation
         if (isNaN(w) || isNaN(s)) {
-            alert("Fill all fields correctly.");
+            alert("Please fill all fields correctly.");
+            return;
+        }
+
+        if (w <= 0) {
+            alert("Weight must be greater than 0.");
             return;
         }
 
@@ -49,11 +63,24 @@ function calculate() {
         "Final Strength: " + result.toFixed(2) + "%";
 }
 
+// Toggle dark mode
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
+
+    // Save preference
+    localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark")
+    );
 }
 
-// Add first row on load
+// Initialize app on load
 window.onload = () => {
+    // Add first material row
     addMaterial();
+
+    // Load dark mode preference
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark");
+    }
 };
