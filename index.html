@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Material Hardness Calculator</title>
+  <title>Material Strength Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h2>Material Hardness Calculator</h2>
+<div class="container">
+  <h1>Material Strength Calculator</h1>
 
-<div id="materials"></div>
+  <div class="controls">
+    <button onclick="addMaterial()">+ Add Material</button>
+    <button onclick="clearAll()">Clear All</button>
+    <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  </div>
 
-<button onclick="addMaterial()">Add Material</button>
-<button onclick="calculate()">Calculate</button>
+  <div id="materials"></div>
 
-<h3 id="result"></h3>
+  <button class="calculate-btn" onclick="calculate()">Calculate</button>
+
+  <h2 id="result"></h2>
+</div>
 
 <script src="script.js"></script>
 </body>
